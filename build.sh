@@ -16,6 +16,8 @@ then
     if [ -f $(git rev-parse --git-dir)/shallow ];
     then
         git fetch --unshallow
+    else
+        git fetch
     fi
     git checkout $JMX_BRANCH
 else
