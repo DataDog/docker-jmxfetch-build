@@ -12,8 +12,6 @@ general:
 dependencies:
   pre:
     - mkdir -p ~/pkg
-  cache_directories:
-    - "~/cache"
   post:
     - docker run -e JMX_BRANCH=$JMX_BRANCH -v /home/ubuntu/pkg:/pkg datadog/docker-jmxfetch-build:latest
 
