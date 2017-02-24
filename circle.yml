@@ -18,4 +18,5 @@ dependencies:
 test:
   override:
     - mkdir -p pkg
-    - cp ~/pkg/* pkg/
+    - cp ~/pkg/*.jar pkg/
+    - cp ~/pkg/META-INF/* pkg/
