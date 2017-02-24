@@ -27,5 +27,6 @@ fi
 mvn clean compile assembly:single && cd -
 
 cp /$JMXPATH/target/*.jar /pkg
+cd /pkg && jar xf $(find /$JMXPATH/target -type f -name '*.jar' -exec ls -1rt "{}" +\;  | tail -n 1) META-INF/MANIFEST.MF && cd -
 
 set +e
