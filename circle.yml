@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+
+general:
+  branches:
+    ignore:
+      - /.*/
+  artifacts:
+    - "pkg"
+
+dependencies:
+  pre:
+    - mkdir -p ~/pkg
+  cache_directories:
+    - "~/cache"
+  post:
+    - docker run -e JMX_BRANCH=$JMX_BRANCH -v /home/ubuntu/pkg:/pkg datadog/docker-jmxfetch-build:latest
+
+test:
+  override:
+    - mkdir -p pkg
+    - cp ~/pkg/* pkg/
