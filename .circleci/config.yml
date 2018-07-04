@@ -1,0 +1,12 @@
+version: 2
+
+jobs:
+  build:
+    machine: true
+    steps:
+      - run: mkdir -p ~/pkg
+      - run: docker run -e JMX_BRANCH=$JMX_BRANCH -v /home/circleci/pkg:/pkg datadog/docker-jmxfetch-build:latest
+      - store_artifacts:
+          path: ~/pkg
+
+
