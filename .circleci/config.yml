@@ -9,4 +9,8 @@ jobs:
       - store_artifacts:
           path: ~/pkg
 
-
+workflows:
+  version: 2
+  build_jmxfetch:
+    jobs:
+      - build
